@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillSwap - Meus Matches</title>
+    <link rel="stylesheet" href="inicial.css"> <link rel="stylesheet" href="matches.css">
+</head>
+<body>
+    <header>
+        <img id="icontop" src="../image/inoneskills.png" alt="iconskillswap">
+        <div class="text-header">
+            <h1>SkillSwap</h1>
+            <p>O Tinder de Habilidades com IA</p>
+        </div>
+        <div class="usuario-container" style="position: relative; display: flex; align-items: center; gap: 20px;">
+            
+            <div id="area-notificacao" style="position: relative; cursor: pointer;" onclick="toggleMenuNotificacoes()">
+                <span style="font-size: 1.6rem;">🔔</span>
+                <span id="badge-notificacao" style="display: none; position: absolute; top: -5px; right: -5px; background: #ff7675; color: white; border-radius: 50%; padding: 2px 6px; font-size: 0.75rem; font-weight: bold;">0</span>
+            </div>
+
+            <div id="menu-notificacoes" style="display: none; position: absolute; top: 45px; right: 90px; width: 280px; background: #121324; border: 1px solid #3a3d66; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.5); z-index: 2000; padding: 10px; max-height: 300px; overflow-y: auto;">
+                <p style="margin: 5px; font-size: 0.9rem; font-weight: bold; color: #fff; border-bottom: 1px solid #3a3d66; padding-bottom: 5px;">Novas Mensagens:</p>
+                <div id="lista-notificacoes-itens">
+                    <p style="color: #b9bbbe; font-size: 0.85rem; margin: 10px 5px;">Nenhuma mensagem nova.</p>
+                </div>
+            </div>
+
+            <span id="nome-usuario">Carregando...</span>
+            <button id="sair" onclick="deslogarUsuario()">⬅️ Sair</button>
+        </div>
+    </header>
+
+    <section>
+        <h1>🤝 Suas Conexões e Tutores IA</h1> 
+        <h3>Escolha um tutor especialista em IA ou conecte-se com outros estudantes da comunidade.</h3>
+        
+        <div class="titulo-bloco">🤖 Seus Tutores Inteligentes (IA)</div>
+        <div class="lista-tutores">
+            
+            <div class="card-match card-tutor">
+                <h2>🤖 Tutor Inteligente: Especialista em Java</h2>
+                <div class="info-skills">
+                    <p>Especialidades do Tutor:</p>
+                    <div class="tags-container">
+                        <span class="tag-skill">Java</span>
+                        <span class="tag-skill">Programação Orientada a Objetos</span>
+                        <span class="tag-skill">Spring Boot</span>
+                    </div>
+                </div>
+                <button class="btn-contato btn-tutor" onclick="abrirChatTutor('Java')">💬 Iniciar Aula de Java</button>
+            </div>
+
+            <div class="card-match card-tutor">
+                <h2>🤖 Tutor Inteligente: Especialista em Python</h2>
+                <div class="info-skills">
+                    <p>Especialidades do Tutor:</p>
+                    <div class="tags-container">
+                        <span class="tag-skill">Python</span>
+                        <span class="tag-skill">Ciência de Dados</span>
+                        <span class="tag-skill">Automação de Tarefas</span>
+                    </div>
+                </div>
+                <button class="btn-contato btn-tutor" onclick="abrirChatTutor('Python')">💬 Iniciar Aula de Python</button>
+            </div>
+
+            <div class="card-match card-tutor">
+                <h2>🤖 Tutor Inteligente: Especialista em Matemática</h2>
+                <div class="info-skills">
+                    <p>Especialidades do Tutor:</p>
+                    <div class="tags-container">
+                        <span class="tag-skill">Matemática</span>
+                        <span class="tag-skill">Álgebra</span>
+                        <span class="tag-skill">Lógica Computacional</span>
+                    </div>
+                </div>
+                <button class="btn-contato btn-tutor" onclick="abrirChatTutor('Matemática')">💬 Iniciar Aula de Matemática</button>
+            </div>
+
+        </div>
+
+        <hr class="divisor-secao">
+
+        <div class="titulo-bloco">👤 Estudantes Disponíveis para Troca</div>
+        <div id="lista-matches" class="grid-matches">
+            <p>Buscando parceiros de estudo...</p>
+        </div>
+
+        <div class="botoes" style="margin-top: 30px;">
+            <button id="btn-voltar">
+                <span>🏠</span> Voltar ao Perfil
+            </button>
+        </div>
+    </section>
+    <script src="javascript/matches.js"></script>
+
+    <div id="modal-chat" class="modal-overlay">
+        <div class="chat-container">
+            <div class="chat-header">
+                <h2 id="titulo-chat">🤖 Tutor Inteligente</h2>
+                <button class="btn-fechar-chat" onclick="fecharChatTutor()">❌ Fechar</button>
+            </div>
+            
+            <div id="historico" class="historico-mensagens"></div>
+            
+            <div class="area-input-chat">
+                <input type="text" id="input-mensagem" placeholder="Fale com o tutor... (Pressione Enter)" autocomplete="off">
+                <button id="btn-enviar">Enviar</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-chat-humano" class="modal-overlay">
+    <div class="chat-container">
+        <div class="chat-header">
+            <h2 id="titulo-chat-humano">👤 Conversa com Estudante</h2>
+            <button class="btn-fechar-chat" onclick="fecharChatHumano()">❌ Fechar</button>
+        </div>
+        
+        <div id="historico-humano" class="historico-mensagens">
+            </div>
+        
+        <div class="area-input-chat">
+            <input type="text" id="input-mensagem-humano" placeholder="Envie uma mensagem para combinar os estudos..." autocomplete="off" onkeypress="if(event.key === 'Enter') enviarMensagemHumano()">
+            
+            <button id="btn-enviar-humano" onclick="enviarMensagemHumano()">Enviar</button>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

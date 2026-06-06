@@ -1,0 +1,313 @@
+body{
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+    min-height: 100vh;
+}
+
+header{
+    display: flex;
+    gap: 5px;
+    background: linear-gradient(135deg, #1a1a3d 0%, #22223d 50%, #1b284d 100%);
+    height: 140px;
+    border: rgb(83, 40, 139) solid 0.05px;
+    border-radius: 6px;
+    box-shadow: rgb(243, 243, 243) 10px;
+    align-items: center;
+    padding: 0 30px;
+}
+
+header h1{
+    margin-top: 50px;
+    background: linear-gradient(135deg, #2570ba 0%, #23869a 50%, #28bead 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+
+}
+
+header p{
+    margin-top: 5px;
+    color: rgb(255, 197, 255);
+    font-size: small;
+}
+
+.text-header{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#icontop{
+    margin: 20px;
+    margin-top: 40px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%; /* Transforma em círculo */
+    object-fit: cover;   /* Garante que a imagem não fique amassada */
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+img{
+    border-radius: 50%;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
+    object-fit: cover;
+}
+
+@keyframes flutuar {
+    0% {
+        transform: translateY(0); /* Posição original */
+    }
+    50% {
+        transform: translateY(-10px); /* Sobe 10 pixels */
+    }
+    100% {
+        transform: translateY(0); /* Volta para o lugar */
+    }
+}
+
+header img, 
+header h1,
+section img {
+    display: inline-block; /* Necessário para o transform funcionar bem */
+    animation: flutuar 3s ease-in-out infinite; /* 3 segundos, suave, para sempre */
+}
+
+.habilidades{
+    display: flex;
+    flex-direction: row;
+    gap: 15px; /* Cria um espaço bacana entre o bloco de ensinar e aprender */
+    width: 100%; /* Faz a área aproveitar melhor o espaço da section */
+    padding: 0 15px;
+    box-sizing: border-box;
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+section{
+    background: linear-gradient(135deg, #1a1a3d 0%, #22223d 50%, #1b284d 100%);
+    min-height: 80vh;
+    color: white;
+    flex-direction: column;
+    width: 95%;
+    margin: 20px auto;
+    display: flex;
+    align-items: center;
+    border: rgb(83, 40, 139) solid 0.05px;
+    border-radius: 20px;
+    box-shadow: 2px 2px 4px #0f0f23  ;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+section h1{
+    margin-top: 50px;
+    background: linear-gradient(135deg, #2570ba 0%, #23869a 50%, #28bead 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    text-shadow: #28bead solid 15px;
+}
+
+input{
+    background-color: #292b4a;
+    color: white;
+    border: 1px solid rgb(169, 70, 218);
+    border-radius: 15px;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 10px 0;
+
+    /* O TRUQUE: Deixa um padding normal em cima e nas laterais, e empurra o fundo lá para baixo */
+    padding-top: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 110px; /* Cria o espaço vertical, simulando os 140px de altura */
+    
+    /* Remove qualquer alinhamento vertical padrão que o navegador tente forçar */
+    line-height: 1.2;
+
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover, 
+    input:-webkit-autofill:focus,
+    input:-webkit-autofill:active {
+    /* Altera a cor do texto do autocompletar para branco */
+    -webkit-text-fill-color: #ffffff !important;
+    
+    /* Cria uma sombra interna gigante com a cor exata do seu input original */
+    -webkit-box-shadow: 0 0 0px 1000px #292b4a inset !important;
+    
+    /* Mantém a fonte combinando com o resto do site */
+    transition: background-color 5000s ease-in-out 0s;
+    }
+}
+
+input::placeholder{
+    color: darkgray;
+}
+
+#bnt-sugerir-talento, #bnt-sugerir-aprendizado{
+    /* 1. As cores do gradiente (roxo para azulado) */
+    background: linear-gradient(135deg, #2570ba 0%, #23869a 50%, #28bead 100%);
+    
+    /* 2. Cores do texto e alinhamento */
+    color: white;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px; /* Espaço entre o foguete e o texto */
+    
+    /* 3. Tamanho e Formato */
+    width: 100%;       /* Ou o tamanho que você preferir */
+    padding: 30px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 15px; /* Deixa os cantos bem arredondados */
+    
+    /* 4. O efeito de brilho (Sombra) */
+    box-shadow: 0px 10px 20px #23869a;
+    
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-sizing: border-box;
+}
+
+#bnt-sugerir-talento:hover, #bnt-sugerir-aprendizado:hover{
+    transform: translateY(-2px);
+    box-shadow: 0px 15px 25px #28bead; 
+}
+
+
+#sair{
+margin-left: auto;
+ background: linear-gradient(90deg, #8a3ffc 0%, #5d45fd 100%);
+    
+    /* 2. Cores do texto e alinhamento */
+    color: white;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px; /* Espaço entre o foguete e o texto */
+    
+    /* 3. Tamanho e Formato */
+     /* Ou o tamanho que você preferir */
+    height: 50px;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 15px; /* Deixa os cantos bem arredondados */
+    
+    /* 4. O efeito de brilho (Sombra) */
+    box-shadow: 0px 10px 20px rgba(93, 69, 253, 0.3);
+    
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+#sair:hover{
+    transform: translateY(-2px); /* Ele sobe levemente */
+    box-shadow: 0px 15px 25px rgba(93, 69, 253, 0.5); /* O brilho aumenta */
+}
+
+.usuario-container{
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+#nome-usuario{
+    color: #ffffff;
+    font-weight: bold;
+    font-family: sans-serif;
+    font-size: 16px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 8px 16px;
+    border-radius: 20px;
+}
+
+.ensinar, .aprender {
+    
+    flex: 1; /* Faz as duas caixas terem exatamente o mesmo tamanho proporcional */
+    background: rgba(255, 255, 255, 0.03); /* Um fundo sutil para destacar os blocos */
+    border: 1px solid rgba(83, 40, 139, 0.3);
+    border-radius: 15px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Alinha os inputs e botões no centro de cada bloco */
+    box-sizing: border-box;
+}
+
+/* Ajuste nos títulos internos se precisar */
+.ensinar h2, .aprender h2 {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: #ffffff; /* Usando uma cor do seu gradiente padrão */
+}
+
+#opcoes {
+    display: flex;
+    flex-wrap: wrap; /* Permite quebrar linha se tiver muitas opções */
+    justify-content: center; /* Centraliza as tags no meio do bloco */
+    gap: 10px; /* Espaço uniforme entre cada tag (cima, baixo, lados) */
+    margin-bottom: 15px;
+    padding: 5px;
+}
+
+#opcoes a{
+    display: inline-block;
+    background-color: rgb(114, 114, 114);
+    color: white;
+    text-decoration: none;
+    padding: 10px 16px;
+    border-radius: 20px;
+    box-shadow: 2px 2px 5px rgb(49, 49, 49);
+    font-size: 14px;
+    transition: background 0.2s, transform 0.2s;
+    margin: 0;
+}
+
+#opcoes a:hover{
+    background-color: rgb(85, 85, 85);
+    transform: translateY(-2px);
+}
+
+.botoes #save-skills, #views-matches{
+    background: linear-gradient(90deg, #8a3ffc 0%, #5d45fd 100%);
+    
+    /* 2. Cores do texto e alinhamento */
+    color: white;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px; /* Espaço entre o foguete e o texto */
+    
+    /* 3. Tamanho e Formato */
+    width: 70%;       /* Ou o tamanho que você preferir */
+    padding: 15px 30px;
+    border: none;
+    border-radius: 15px; /* Deixa os cantos bem arredondados */
+    
+    /* 4. O efeito de brilho (Sombra) */
+    box-shadow: 0px 10px 20px rgba(93, 69, 253, 0.3);
+    
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.botoes #save-skills:hover, #views-matches:hover{
+    transform: translateY(-2px); /* Ele sobe levemente */
+    box-shadow: 0px 15px 25px rgba(93, 69, 253, 0.5); /* O brilho aumenta */
+}
+
+.botoes{
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    margin: auto;
+}

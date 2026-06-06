@@ -1,0 +1,259 @@
+/* ==========================================
+   ESTILOS EXCLUSIVOS DA PÁGINA DE MATCHES
+   ========================================== */
+
+/* Container que envolve o título e a lista */
+section {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+section h1 {
+    font-size: 2rem;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+section h3 {
+    font-size: 1.1rem;
+    color: #b9bbbe;
+    font-weight: 400;
+    margin-bottom: 40px;
+}
+
+/* O Grid que organiza os Boxes dos Matches */
+.grid-matches {
+    display: flex;
+    flex-direction: column; /* Faz os blocos ficarem um embaixo do outro */
+    gap: 25px; /* Espaço entre uma linha e outra */
+    margin-bottom: 40px;
+    width: 100%; /
+}
+
+/* O Box (Card) de cada Match */
+.card-match {
+    background: linear-gradient(135deg, #20204c 0%, #34345e 50%, #22325f 100%);    /* O roxo/azul escuro idêntico à sua imagem */
+    border-radius: 8px;
+    padding: 30px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    text-align: left;
+    
+    /* 🔴 A MÁGICA PARA FICAR COMPRIDO NA HORIZONTAL: */
+    width: 95%; /* Ocupa quase 100% da largura da section */
+    margin: 0 auto; /* Centraliza a faixa na tela */
+    box-sizing: border-box; /* Garante que o padding não quebre a largura */
+
+    display: flex;
+    flex-direction: column;
+}
+
+.card-match:hover {
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.4);
+}
+
+.card-match h3 {
+    color: #fff;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #3f416e;
+    padding-bottom: 10px;
+}
+
+/* Área interna das Habilidades */
+.info-skills {
+    margin-bottom: 20px;
+}
+
+.info-skills p {
+    color: #b9bbbe;
+    font-size: 0.9rem;
+    margin: 12px 0 6px 0;
+}
+
+/* 🟢 Estilização das Habilidades como os botões de sugestão */
+.tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 5px;
+}
+
+.tag-skill {
+    display: inline-block;
+    padding: 6px 12px;
+    background-color: #1e1f38; /* Fundo mais escuro para destacar */
+    color: #6c5ce7; /* Cor roxa viva das tags */
+    border: 1px solid #6c5ce7;
+    border-radius: 20px; /* Deixa arredondado igual na página inicial */
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+/* Cor diferente para diferenciar o que a pessoa quer APRENDER */
+.tag-aprender {
+    color: #fdcb6e; /* Tom amarelo/laranja para diferenciar visualmente */
+    border-color: #fdcb6e;
+}
+
+/* Botão de Contato Interno do Box */
+.btn-contato {
+    display: block;
+    text-align: center;
+    background: linear-gradient(90deg, #8a3ffc 0%, #5d45fd 100%);
+    color: white;
+    text-decoration: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.95rem;
+
+    margin-top: auto;
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+}
+
+.btn-contato:hover {
+    transform: translateY(-2px); /* Ele sobe levemente */
+    box-shadow: 0px 15px 25px rgba(93, 69, 253, 0.5); /* O brilho aumenta */
+}
+
+/* Estado de aviso sem matches */
+.sem-matches {
+    grid-column: 1 / -1;
+    background: #23243d;
+    padding: 40px;
+    border-radius: 12px;
+    border: 1px dashed #3f416e;
+}
+
+/* Títulos divisórios das seções */
+.titulo-bloco {
+    color: #fff;
+    font-size: 1.4rem;
+    font-weight: 600;
+    text-align: left;
+    width: 95%;
+    margin: 30px auto 15px auto;
+}
+
+/* Container que empilha os tutores */
+.lista-tutores {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+/* Diferenciação sutil para o card do robô tutor */
+.card-tutor {
+    border: 1px solid #6c5ce7; /* Borda roxa destacando que é IA */
+    background-image: linear-gradient(to right, #121324, #1a1c36);
+}
+
+/* Botão personalizado de chat com o Tutor */
+.btn-tutor {
+    background-color: #6c5ce7;
+    border-color: #5b4cc4;
+    cursor: pointer;
+}
+
+.btn-tutor:hover {
+    background-color: #5b4cc4;
+}
+
+/* Linha sutil para separar robôs de humanos */
+.divisor-secao {
+    border: 0;
+    height: 1px;
+    background: #3a3d66;
+    width: 95%;
+    margin: 40px auto;
+}
+
+/* Fundo escuro que cobre a tela inteira atrás do chat */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75); /* Escurece o fundo */
+    backdrop-filter: blur(4px); /* Dá um efeito borrado chique no fundo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Garante que fica por cima de TUDO */
+    
+    /* Começa escondido */
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+/* Classe que o JavaScript vai usar para MOSTRAR o chat */
+.modal-overlay.ativo {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* A Caixa do Chat propriamente dita */
+.chat-container {
+    width: 90%;
+    max-width: 700px;
+    height: 550px;
+    background: #121324; /* Roxo escuro igual ao seu tema */
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #3a3d66;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+}
+
+/* Topo do Chat (Título + Botão Fechar) */
+.chat-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #3a3d66;
+    padding-bottom: 10px;
+}
+.chat-header h2 { margin: 0; font-size: 1.3rem; color: #fff; }
+
+.btn-fechar-chat {
+    background: #ff7675;
+    border: none;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+/* Área de mensagens rolável */
+.historico-mensagens {
+    flex: 1;
+    overflow-y: auto;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 15px;
+    background: #0b0c16;
+    border-radius: 6px;
+}
+
+/* Estilo dos balões de fala */
+.mensagem { padding: 10px 14px; border-radius: 8px; max-width: 75%; font-size: 0.95rem; line-height: 1.4; color: #fff; }
+.mensagem.usuario { background: #6c5ce7; align-self: flex-end; }
+.mensagem.tutor { background: #21233d; align-self: flex-start; border: 1px solid #3a3d66; }
+
+/* Barra de digitação */
+.area-input-chat { display: flex; gap: 10px; }
+.area-input-chat input { flex: 1; padding: 12px; background: #21233d; border: 1px solid #3a3d66; border-radius: 6px; color: #fff; font-size: 1rem; }
+.area-input-chat button { padding: 0 20px; background: #6c5ce7; border: none; color: #fff; border-radius: 6px; font-weight: 600; cursor: pointer; }

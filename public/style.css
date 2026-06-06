@@ -1,0 +1,263 @@
+body{
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+    min-height: 100vh;
+}
+
+header{
+    display: flex;
+    gap: 5px;
+    background: linear-gradient(135deg, #1a1a3d 0%, #22223d 50%, #1b284d 100%);
+    height: 140px;
+    border: rgb(83, 40, 139) solid 0.05px;
+    border-radius: 6px;
+    box-shadow: rgb(243, 243, 243) 10px;
+    align-items: center;
+    padding: 0 30px;
+}
+
+header h1{
+    margin-top: 50px;
+    background: linear-gradient(135deg, #2570ba 0%, #23869a 50%, #28bead 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+
+}
+
+header p{
+    margin-top: 5px;
+    color: rgb(255, 197, 255);
+    font-size: small;
+}
+
+.text-header{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#icontop{
+    margin: 20px;
+    margin-top: 40px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%; /* Transforma em círculo */
+    object-fit: cover;   /* Garante que a imagem não fique amassada */
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+img{
+    border-radius: 50%;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
+    object-fit: cover;
+}
+
+@keyframes flutuar {
+    0% {
+        transform: translateY(0); /* Posição original */
+    }
+    50% {
+        transform: translateY(-10px); /* Sobe 10 pixels */
+    }
+    100% {
+        transform: translateY(0); /* Volta para o lugar */
+    }
+}
+
+header img, 
+header h1,
+section img {
+    display: inline-block; /* Necessário para o transform funcionar bem */
+    animation: flutuar 3s ease-in-out infinite; /* 3 segundos, suave, para sempre */
+}
+
+section{
+    background: linear-gradient(135deg, #1a1a3d 0%, #22223d 50%, #1b284d 100%);
+    min-height: 80vh;
+    color: white;
+    flex-direction: column;
+    width: 75%;
+    margin: 15px;
+    margin-left: 180px;
+    display: flex;
+    align-items: center;
+    border: rgb(83, 40, 139) solid 0.05px;
+    border-radius: 20px;
+    box-shadow: 2px 2px 4px #0f0f23  ;
+}
+
+section img{
+    margin: 10px;
+    margin-top: 30px;
+    width: 150px;      
+    height: 150px;     
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0px 8px 25px rgba(138, 63, 252, 0.4);
+
+}
+
+section h1{
+    margin-top: 50px;
+    background: linear-gradient(135deg, #2570ba 0%, #23869a 50%, #28bead 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    text-shadow: #28bead solid 15px;
+}
+
+nav{
+display: flex;
+gap: 20px;
+}
+
+#blogin{
+    background-color: #8a3ffc;
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px 10px;
+    border-radius: 13px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
+}
+
+#blogin:hover{
+    cursor: pointer;
+}
+
+#bcadastro{
+    background-color: rgb(73, 73, 73);
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px 10px;
+    border-radius: 13px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
+}
+
+#bcadastro:hover{
+    cursor: pointer;
+}
+
+.inputs{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 30px;
+    width: 70%;
+}
+
+.inputs input{
+    background-color: #292b4a;
+    color: white;
+    border: 1px solid rgb(169, 70, 218);
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.inputs input::placeholder{
+    color: darkgray;
+}
+
+#entrar{
+    /* 1. As cores do gradiente (roxo para azulado) */
+    background: linear-gradient(90deg, #8a3ffc 0%, #5d45fd 100%);
+    
+    /* 2. Cores do texto e alinhamento */
+    color: white;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px; /* Espaço entre o foguete e o texto */
+    
+    /* 3. Tamanho e Formato */
+    width: 70%;       /* Ou o tamanho que você preferir */
+    padding: 15px 30px;
+    border: none;
+    border-radius: 15px; /* Deixa os cantos bem arredondados */
+    
+    /* 4. O efeito de brilho (Sombra) */
+    box-shadow: 0px 10px 20px rgba(93, 69, 253, 0.3);
+    
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+#entrar:hover{
+    transform: translateY(-2px); /* Ele sobe levemente */
+    box-shadow: 0px 15px 25px rgba(93, 69, 253, 0.5); /* O brilho aumenta */
+}
+
+.divisor{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #8a8a8a;
+    margin: 20px 0;
+}
+
+.divisor::before,
+.divisor::after{
+    content: "";
+    flex: 1;
+    border-bottom: 1px solid #333;
+}
+
+.divisor:not(:empty)::before{
+    margin-right: 15px;
+}
+
+.divisor.divisor:not(:empty)::after{
+    margin-left: 15px;
+}
+
+#sair{
+margin-left: auto;
+ background: linear-gradient(90deg, #8a3ffc 0%, #5d45fd 100%);
+    
+    /* 2. Cores do texto e alinhamento */
+    color: white;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px; /* Espaço entre o foguete e o texto */
+    
+    /* 3. Tamanho e Formato */
+     /* Ou o tamanho que você preferir */
+    height: 50px;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 15px; /* Deixa os cantos bem arredondados */
+    
+    /* 4. O efeito de brilho (Sombra) */
+    box-shadow: 0px 10px 20px rgba(93, 69, 253, 0.3);
+    
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+#sair:hover{
+    transform: translateY(-2px); /* Ele sobe levemente */
+    box-shadow: 0px 15px 25px rgba(93, 69, 253, 0.5); /* O brilho aumenta */
+}
+
+.usuario-container{
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+#nome-usuario{
+    color: #ffffff;
+    font-weight: bold;
+    font-family: sans-serif;
+    font-size: 16px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 8px 16px;
+    border-radius: 20px;
+}

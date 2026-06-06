@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillSwap - Tinder de Habilidades</title>
+    <link rel="stylesheet" href="inicial.css">
+</head>
+<body>
+    <header>
+        <img id="icontop" src="../image/inoneskills.png" alt="iconskillswap">
+        <div class="text-header">
+            <h1>SkillSwap</h1>
+            <p>O Tinder de Habilidades com IA</p>
+        </div>
+        <div class="usuario-container">
+            <span id="nome-usuario">Carregando...</span>
+
+            <button id="sair" onclick="fazerLogout()">
+                🚪Sair
+            </button>
+        </div>
+    </header>
+        <section>
+            <h1>Olá</h1> 
+            <h3>Conte-nos sobre suas habilidades para encontrar os melhores matches e começar e aprender.</h3>
+            <div class="habilidades">
+                <section class="ensinar">
+                    <h2>O que você sabe ensinar?</h2>
+                    <input type="text" id="talento" placeholder="Ex: Java, inglês, Fotografia" autocomplete="off">
+                    <button id="bnt-sugerir-talento">
+                        <span>✨</span>Sugerir Habilidade com IA
+                    </button href="pagina_Inicial.html">
+                </section>
+                
+                <section class="aprender">
+                    <h2>O que você quer aprender?</h2>
+                    <div>
+                        <nav id="opcoes">
+                            <a href="#">Java</a>
+                            <a href="#">Python</a>
+                            <a href="#">Medicina Veterinaria</a>
+                            <a href="#">Produção Musical</a>
+                            <a href="#">Inglês</a>
+                            <a href="#">Espanhol</a>
+                            <a href="#">Fotografia</a>
+                            <a href="#">Design</a>
+                            <a href="#">Culinaria</a>
+                            <a href="#">Programação</a>
+                            <a href="#">Marketing Digital</a>
+                            <a href="#">Finanças Pessoais</a>
+                            <a href="#">Desenho</a>
+                            <a href="#">Dança</a>
+                            <a href="#">Matemática</a>
+                        </nav>
+                    </div>
+                    <input type="text" id="aprendizado" placeholder="Ex: Espanhou, Culinaria, Python" autocomplete="off">
+                                        <button id="bnt-sugerir-aprendizado">
+                        <span>✨</span>Sugerir Habilidade com IA
+                    </button href="pagina_Inicial.html">
+                </section>
+            </div>
+            <div class="botoes">
+                <button id="save-skills" onclick="salvarHabilidades()">
+                    <span>💾</span>Salvar Habilidades
+                </button href="pagina_Inicial.html">
+                <button id="views-matches">
+                    <span>👥</span>Ver Meus Matches
+                </button href="pagina_Inicial.html">
+            </div>
+        </section>
+        <script src="javascript/inicial.js"></script>
+</body>
+</html>
