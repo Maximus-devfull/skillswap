@@ -1,43 +1,29 @@
+require('dotenv').config();
 const { GoogleGenAI } = require('@google/genai');
 
-// Coloque a sua chave que funcionou aqui dentro das aspas
-const ai = new GoogleGenAI({ apiKey: "AIzaSyB-RGNynnI-QxplJSzXu-ScrzYtTwccy0M" });
+// Configure GEMINI_API_KEY apenas no arquivo .env local.
+if (!process.env.GEMINI_API_KEY) {
+  console.error('Defina GEMINI_API_KEY no arquivo .env antes de testar o tutor.');
+  process.exit(1);
+}
+
+const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
 
 async function rodarTutor() {
-    // Corrigido para um loop tradicional à prova de falhas
-    const modelosParaTentar = ['gemini-2.5-flash', 'gemini-2.0-flash'];
-    let respostaGerada = null;
-
-    for (let i = 0; i < modelosParaTentar.length; i++) {
-        const modelo = modelosParaTentar[i];
-        
-        try {
-            console.log(`🤖 Tentando conectar ao modelo: ${modelo}...`);
-
-            const response = await ai.models.generateContent({
-                model: modelo,
-                contents: 'Explique brevemente o que é álgebra booleana',
-                config: {
-                    systemInstruction: "Você é um Tutor Especialista em Matemática no SkillSwap. Seja didático e direto.",
-                    temperature: 0.7
-                }
-            });
-
-            respostaGerada = response.text;
-            break; // Se funcionou, interrompe o loop e vai para o resultado
-
-        } catch (error) {
-            console.warn(`⚠️ O modelo ${modelo} falhou ou está instável agora.`);
-        }
-    }
-
-    // Exibe o resultado final na tela
-    if (respostaGerada) {
-        console.log("\n🎓 Resposta do Tutor:");
-        console.log(respostaGerada);
-    } else {
-        console.error("\n🚨 Não foi possível obter resposta dos servidores do Gemini. Tente novamente em alguns instantes.");
-    }
+  try {
+    const response = await ai.models.generateContent({
+      model: 'gemini-2.5-flash',
+      contents: 'Explique brevemente o que é álgebra booleana',
+      config: {
+        systemInstruction: 'Você é um tutor de matemática no SkillSwap. Seja didático e direto.',
+        temperature: 0.7
+      }
+    });
+    console.log('Resposta do tutor:', response.text);
+  } catch (error) {
+    console.error('Falha ao testar tutor. Verifique sua chave, permissões e conectividade.');
+    process.exitCode = 1;
+  }
 }
 
 rodarTutor();
